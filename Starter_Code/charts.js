@@ -130,9 +130,29 @@ console.log(wash)
     PLotly.newPLot("bubbleplot",bubble,bubblelay)
     // Deliverable 3: 4. Create the trace for the gauge chart.
     
+    var data_guage = [
+          {
+          domain: { x: [0, 1], y: [0, 1] },
+          value: parseFloat(wfreq),
+          title: { text: `Weekly Washing Frequency ` },
+          type: "indicator",
+          
+          mode: "gauge+number",
+          gauge: { axis: { range: [null, 9] },
+                   steps: [
+                    { range: [0, 2], color: "yellow" },
+                    { range: [2, 4], color: "blue" },
+                    { range: [4, 6], color: "green" },
+                    { range: [6, 8], color: "red" },
+                    { range: [8, 9], color: "orange" },
+                  ]}
     // Deliverable 3: 5. Create the layout for the gauge chart.
-
+  var layout_guage = { 
+            width: 900, 
+            height: 700, 
+            margin: { t: 20, b: 40, l:100, r:100 } 
+          };
     // Deliverable 3: 6. Use Plotly to plot the gauge data and layout.
-
+          Plotly.newPlot("gauge", data_guage, layout_guage);
   });
 }
